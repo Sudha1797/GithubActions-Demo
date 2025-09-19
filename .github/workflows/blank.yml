@@ -20,10 +20,7 @@ jobs:
       - name: Authenticate with JWT
         run: |
           echo "${{ secrets.SF_JWT_KEY }}" > server.key
-          sfdx auth:jwt:grant --username ${{ secrets.SF_USERNAME }} \
-            --clientid ${{ secrets.SF_CLIENT_ID }} \
-            --jwtkeyfile server.key \
-            --instanceurl ${{ secrets.SF_LOGIN_URL }} \
+          sfdx auth:jwt:grant --username ${{ secrets.SF_USERNAME }} --clientid ${{ secrets.SF_CLIENT_ID }} --jwtkeyfile server.key --instanceurl ${{ secrets.SF_LOGIN_URL }} 
             --setdefaultusername
 
       - name: Deploy metadata
