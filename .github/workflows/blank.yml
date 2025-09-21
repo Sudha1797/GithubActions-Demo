@@ -22,7 +22,7 @@ jobs:
           echo "${{ secrets.SF_JWT_KEY }}" > server.key
       - name: Authenticate to Salesforce
         run: |
-          sfdx auth:jwt:grant --username ${{ secrets.SF_USERNAME }} --clientid ${{ secrets.SF_CLIENT_ID }} --jwtkeyfile server.key --instanceurl ${{ secrets.SF_LOGIN_URL }} --setdefaultusername
+          sfdx force:auth:jwt:grant --username ${{ secrets.SF_USERNAME }} --clientid ${{ secrets.SF_CLIENT_ID }} --jwtkeyfile server.key --instanceurl ${{ secrets.SF_LOGIN_URL }} --setdefaultusername
 
       - name: Deploy metadata
         run: |
